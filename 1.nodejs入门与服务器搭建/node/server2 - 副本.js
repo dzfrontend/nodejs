@@ -2,8 +2,6 @@ const http = require('http'); //导入http模块，http这个模块变量后面�
 
 // var server = http.createServer(function(request,response){
 var server = http.createServer(function(req,res){
-
-	console.log(req.url);
 	res.write('写入成功'); //write()向浏览器写东西
 	res.end(); //end()结束
 });

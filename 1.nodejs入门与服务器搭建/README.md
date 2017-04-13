@@ -1,14 +1,14 @@
 ## 1.1 nodejs安装
 
-官网下载nodejs文件https://nodejs.org/en/，一步一步安装即可
+官网下载nodejs文件https://nodejs.org/en ,一步一步安装即可
 
 ## 1.2 nodejs运行
 cmd命令窗口打开js的当前目录，node xxx.js运行js文件  
 JS能用的，NodeJS都能用
 
-##1.3 nodejs服务器
+## 1.3 nodejs服务器
 
-###http协议
+### http协议
 
 需要了解http协议，对应的nodejs API文档为HTTP
 
@@ -16,7 +16,7 @@ JS能用的，NodeJS都能用
 
 可以参考<http://www.jianshu.com/p/ea6ff4f9b3d9>，很详细有用。
 
-###搭建服务器
+### 搭建服务器
 
 ```
 const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量

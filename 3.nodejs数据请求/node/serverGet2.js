@@ -1,4 +1,5 @@
 const http = require('http');
+const querystring = require('querystring');
 
 //获取get数据
 http.createServer((req,res) => {
@@ -7,18 +8,11 @@ http.createServer((req,res) => {
 	console.log(req.url);
 	if(req.url.indexOf('?') !== -1){ //url地址有?情况 ，避免/favicon.ico的情况
 		var arr = req.url.split('?');
+		var url = arr[0]; //arr[0] => 地址 '/aaa'
 		//arr[0] => 地址 '/aaa'    arr[1] => 数据 'user=dengzhao%pass=123456'
 
-		var arr2 = arr[1].split('&');
-		//arr2 => ['user=dengzhao','pass=123456']
-
-		var GET = {}; //用来存储被切割的请求数据
-		var url = arr[0]; //arr[0] => 地址 '/aaa'
-		for(var i=0;i<arr2.length;i++){
-			var arr3 = arr2[i].split('=');
-			//arr3[0] => 名字user   arr3[1] => 数据dengzhao
-			GET[arr3[0]] = arr3[1];
-		}
+		var GET = {};
+		GET = querystring.parse(arr[1]);
 	}else{
 		var url = req.url;
 		var GET = {};

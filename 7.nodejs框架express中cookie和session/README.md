@@ -99,15 +99,15 @@ server.use('/', function (req, res){
 
 安装cookie-parser和cookie-session中间件  
 
-server.use(cookieParser());  
-server.use(cookieSession({
-	keys: [.., .., .., ..] //秘钥必填
-}));  
-server.use('/', function (req,res){
-	res.session['xxx'] = 值; //设置某个session
-	res.session['xxx']; //读取某个session
-	delete res.session['xxx']; //删除某个session
-});  
+	server.use(cookieParser());  
+	server.use(cookieSession({
+		keys: [.., .., .., ..] //秘钥必填
+	}));  
+	server.use('/', function (req,res){
+		res.session['xxx'] = 值; //设置某个session
+		res.session['xxx']; //读取某个session
+		delete res.session['xxx']; //删除某个session
+	});  
 
 下面实现浏览器被访问次数
 

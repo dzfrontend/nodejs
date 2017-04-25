@@ -111,7 +111,7 @@ console.log(html);
 
 ### 属性和内容  
 
-属性放在()里面，逗号分隔  
+属性放在()里面，多个属性用逗号分隔  
 内容空个格，直接往后堆  
 
 script(src="a.js") 解析成=> <script src="a.js"></script>  
@@ -126,10 +126,9 @@ style可以用1.属性写法 2.json格式写法
 ```
 style="width:200px;height:200px;background:red;"
 
-属性写法:style(width:200px;height:200px;background:red;)
+属性写法:(style="width:200px;height:200px;background:red")
 
-json写法:
-
+json写法:(style= {width: '200px', height: '200px', background: 'red'})
 ```
 
 class可以用1.属性写法 2.数组写法  
@@ -139,10 +138,16 @@ class可以用1.属性写法 2.数组写法
 ```
 class="aaa left-swrap active"
 
-属性写法
+属性写法：(class="aaa left-warp active")
 
-json写法
+json写法: (class= ['aaa', 'left-warp', 'active'])
+```
+### id和class简单写法  
 
+例子
+```
+div.box
+div#div1
 ```
 
 

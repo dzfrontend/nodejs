@@ -6,7 +6,9 @@ jade.renderFile('模板文件名', 参数)
 
 const jade = require('jade')
 
-var html = jade.renderFile('./view/jade.jade',{pretty:true});
+// var html = jade.renderFile('./view/jade.jade',{pretty:true});
+
+var html = jade.renderFile('./view/jade2.jade',{pretty:true});
 
 console.log(html);
 

@@ -22,7 +22,7 @@ JS能用的，NodeJS都能用
 
 node文件夹下面的server.js为以下代码，因为sublime已经安装了nodejs开发环境插件，快捷键Ctrl + B 进行编译，sublime控制台就会打印Server running at http://127.0.0.1:8888/；  
 
-命令行打开server.js所在文件夹路径，运行node server.js，出来Server running at http://127.0.0.1:8888/的打印信息，浏览器访问该地址，又出来有人访问了的打印信息
+命令行打开server.js所在文件夹路径，运行node server.js，cmd输出Server running at http://127.0.0.1:8888/，浏览器访问该地址，cmd输出'有人访问了'
 
 ```
 const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量
@@ -43,7 +43,7 @@ response	响应	输出-输出的东西
 
 server2.js
 ```
-const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量
+const http = require('http');
 
 // var server = http.createServer(function(request,response){
 var server = http.createServer(function(req,res){
@@ -51,7 +51,6 @@ var server = http.createServer(function(req,res){
 	res.end(); //end()结束
 });
 
-//监听listen(),里面放端口号
 server.listen(8888);
 console.log('Server running at http://127.0.0.1:8888/');
 ```
@@ -62,7 +61,7 @@ console.log('Server running at http://127.0.0.1:8888/');
 server3.js
 
 ```
-const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量
+const http = require('http');
 
 var server = http.createServer(function(req,res){
 	console.log(req.url); //req.url请求url

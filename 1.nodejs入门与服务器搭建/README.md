@@ -16,15 +16,15 @@ JS能用的，NodeJS都能用
 
 ### Sublime Text3 配置 NodeJs 开发环境
 
-可以参考<http://www.jianshu.com/p/ea6ff4f9b3d9>，很详细有用。
+可以参考<http://www.jianshu.com/p/ea6ff4f9b3d9>。
 
 ### 搭建服务器
 
-node文件夹下面的server.js为以下代码，因为sublime已经安装了nodejs开发环境插件，快捷键Ctrl + B 进行编译，sublime控制台就会打印Server running at http://127.0.0.1:8888/；  
+node文件夹下面的server.js为以下代码，因为sublime已经安装了nodejs开发环境插件，快捷键Ctrl + B 进行编译，sublime控制台就会打印Server running at <http://127.0.0.1:8888/>；  
 
-命令行打开server.js所在文件夹路径，运行node server.js，cmd输出Server running at http://127.0.0.1:8888/，浏览器访问该地址，cmd输出'有人访问了'
+也可以命令行打开server.js所在文件夹路径，运行node server.js，cmd输出Server running at <http://127.0.0.1:8888/>，浏览器访问该地址，cmd输出'有人访问了'
 
-```
+```js
 const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量
 
 var server = http.createServer(function(){
@@ -42,10 +42,9 @@ request		请求	输入-请求的信息
 response	响应	输出-输出的东西
 
 server2.js
-```
+```js
 const http = require('http');
 
-// var server = http.createServer(function(request,response){
 var server = http.createServer(function(req,res){
 	res.write('写入成功'); //write()向浏览器写东西
 	res.end(); //end()结束
@@ -60,7 +59,7 @@ console.log('Server running at http://127.0.0.1:8888/');
 
 server3.js
 
-```
+```js
 const http = require('http');
 
 var server = http.createServer(function(req,res){

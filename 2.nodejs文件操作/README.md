@@ -12,7 +12,7 @@ readFile(文件名,回调函数)
 
 fs.js文件
 
-```
+```js
 const fs = require('fs'); //导入fs模块
 
 //readFile(文件名,回调函数)
@@ -25,7 +25,7 @@ fs.readFile('file.txt',function(err,data){
 });
 ```
 
-运行该js文件会出来二进制数据<Buffer d5 e2 ca c7 d2 bb b8 f6 74 78 74 ce c4 bc fe>，所以需要data.toString()才能真正显示文件内容
+运行该js文件会出来二进制数据，所以需要data.toString()才能真正显示文件内容
 
 ### fs.writeFile()
 
@@ -33,7 +33,7 @@ writeFile(文件名,内容,回调函数)
 
 fs2.js文件
 
-```
+```js
 const fs = require('fs'); //导入fs模块
 
 //writeFile(文件名,内容,回调函数)
@@ -49,13 +49,13 @@ fs.writeFile('file2.txt','这是写入的内容',function(err){
 
 fs文件系统和服务器模块http配合可以解决用户访问地址的请求。当访问服务器的时候，读取文件信息写入浏览器。  
 
-比如访问www文件夹下的index.html文件  req.url 对应 '/index.html'  
+比如访问node/www文件夹下的index.html文件  req.url 对应 '/index.html'  
 也就是/www/index.html路径，可以写为'/www'+req.url  
 
 发现'/www'+req.url可以理解为访问www文件夹下的任意文件  
 
 server.js文件
-```
+```js
 const fs = require('fs');
 const http = require('http');
 

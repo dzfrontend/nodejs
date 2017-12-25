@@ -1,15 +1,16 @@
+// querystring简化处理字符串操作
 const http = require('http');
 const querystring = require('querystring');
 
 //获取get数据
 http.createServer((req,res) => {
-	//req获取前台请求数据
-	//get方式通过url提交,所以通过req.url获取请求数据
+
 	console.log(req.url);
-	if(req.url.indexOf('?') !== -1){ //url地址有?情况 ，避免/favicon.ico的情况
+
+	if(req.url.indexOf('?') !== -1){ //url地址有?，用来区分/favicon.ico的情况
 		var arr = req.url.split('?');
-		var url = arr[0]; //arr[0] => 地址 '/aaa'
-		//arr[0] => 地址 '/aaa'    arr[1] => 数据 'user=dengzhao%pass=123456'
+		//arr => ['/aaa','user=dengzhao&pass=111111']
+		var url = arr[0];
 
 		var GET = {};
 		GET = querystring.parse(arr[1]);
@@ -18,9 +19,9 @@ http.createServer((req,res) => {
 		var GET = {};
 	}
 	
-	console.log(url,GET); //结果/aaa { user: 'dengzhao', pass: '123456' }
+	console.log(url,GET); // cmd输出/aaa { user: 'dengzhao', pass: '123456' }
 
-	res.write('aaa');
+	res.write('get请求成功');
 	res.end();
 }).listen(8088);
 

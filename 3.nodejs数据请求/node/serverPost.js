@@ -18,7 +18,7 @@ http.createServer((req,res) => {
 		console.log(Jdata);
 	});
 
-	// res.write('aaa');
+	res.write('post请求成功');
 	// res.end();
 }).listen(8088);
 

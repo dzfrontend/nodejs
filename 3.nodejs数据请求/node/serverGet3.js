@@ -1,3 +1,4 @@
+// url最简化url处理
 const http = require('http');
 const urlLib = require('url');
 
@@ -8,7 +9,7 @@ http.createServer((req,res) => {
 	var GET = urls.query;
 	console.log(url,GET); //结果/aaa { user: 'dengzhao', pass: '123456' }
 
-	res.write('aaa');
+	res.write('get请求成功');
 	res.end();
 }).listen(8088);
 

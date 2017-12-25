@@ -17,11 +17,11 @@ const fs = require('fs'); //导入fs模块
 
 //readFile(文件名,回调函数)
 fs.readFile('file.txt',function(err,data){
-	if(err){
-		console.log('读取失败');
-	}else{
-		console.log(data.toString());
-	}
+  if(err){
+    console.log('读取失败');
+  }else{
+    console.log(data.toString());
+  }
 });
 ```
 
@@ -34,13 +34,13 @@ writeFile(文件名,内容,回调函数)
 fs2.js文件
 
 ```js
-const fs = require('fs'); //导入fs模块
+const fs = require('fs');
 
 //writeFile(文件名,内容,回调函数)
 fs.writeFile('file2.txt','这是写入的内容',function(err){
-	if(err){
-		console.log('写入失败');
-	}
+  if(err){
+    console.log('写入失败');
+  }
 });
 ```  
 运行该js文件就可以向文件写入内容
@@ -60,18 +60,18 @@ const fs = require('fs');
 const http = require('http');
 
 var server = http.createServer((req,res) => {
-	//不用swith了，新建一个www文件夹保存被访问文件
-	//访问index.html req.url => '/index.html'
-	//读取./www/index.html 也就是 './www'+req.url
-	var file_name = './www'+req.url;
-	fs.readFile(file_name,function(err,data){
-		if(err){
-			res.write('404');
-		}else{
-			res.write(data);
-		}
-		res.end();
-	});
+  //不用swith了，新建一个www文件夹保存被访问文件
+  //访问index.html req.url => '/index.html'
+  //读取./www/index.html 也就是 './www'+req.url
+  var file_name = './www'+req.url;
+  fs.readFile(file_name,function(err,data){
+    if(err){
+      res.write('404');
+    }else{
+      res.write(data);
+    }
+    res.end();
+  });
 });
 server.listen(8088);
 console.log('Server running at http://127.0.0.1:8088/');

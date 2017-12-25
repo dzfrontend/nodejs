@@ -28,7 +28,7 @@ node文件夹下面的server.js为以下代码，因为sublime已经安装了nod
 const http = require('http'); //导入http模块，http这个模块变量后面不会去改它，所以用const定义常量
 
 var server = http.createServer(function(){
-	console.log('有人访问了');
+  console.log('有人访问了');
 });//creatServer创建一个服务器，每当有访问就会执行createServer
 
 //监听listen(),里面放端口号
@@ -46,8 +46,8 @@ server2.js
 const http = require('http');
 
 var server = http.createServer(function(req,res){
-	res.write('写入成功'); //write()向浏览器写东西
-	res.end(); //end()结束
+  res.write('写入成功'); //write()向浏览器写东西
+  res.end(); //end()结束
 });
 
 server.listen(8888);
@@ -63,17 +63,17 @@ server3.js
 const http = require('http');
 
 var server = http.createServer(function(req,res){
-	console.log(req.url); //req.url请求url
-	switch(req.url) {
-		case '/1.html':
-			res.write('访问的是1.html');
-			break;
-		case '/2.html':
-			res.write('访问的是2.html');
-			break;
-		default:
-			res.write('404');
-			break;
+  console.log(req.url); //req.url请求url
+  switch(req.url) {
+    case '/1.html':
+      res.write('访问的是1.html');
+      break;
+    case '/2.html':
+      res.write('访问的是2.html');
+      break;
+    default:
+      res.write('404');
+      break;
 	}
 	res.end();
 });

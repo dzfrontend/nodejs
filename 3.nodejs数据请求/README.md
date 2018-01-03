@@ -15,7 +15,8 @@ POST数据和GET数据后台接收的格式是一样的
 get方式通过url提交数据,所以通过req.url获取请求数据进行处理  
 
 serverGet.js
-```js
+
+	```js
 	const http = require('http');
 	
 	// 打开静态文件formGet.html，提交用户名为dengzhao、密码为123456的数据，get方式提交后url为/aaa?user=dengzhao&pass=111111
@@ -50,7 +51,7 @@ serverGet.js
 	}).listen(8088);
 	
 	console.log('Server running at http://127.0.0.1:8088/');
-```
+	```
 浏览器直接访问静态文件formGet.html提交数据，cmd控制台输出提交的数据
 
 ### Query Strings查询字符串
@@ -120,7 +121,7 @@ data事件，有一段数据到达的时候触发一次(触发很多次)
 
 serverPost.js  
 
-```
+```js
 	const http = require('http')
 	const querystring = require('querystring')
 	

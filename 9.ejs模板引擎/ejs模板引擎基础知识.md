@@ -25,7 +25,7 @@ npm install ejs --save
 
 ## 基础语法
 
-ejs的中文资料很少，现整理了两个还可以的资料  
+ejs的资料很少，现整理了两个还可以的资料  
 
-segmentfault https://segmentfault.com/a/1190000004286562#articleHeader4  
-推酷 http://www.tuicool.com/articles/rii6raN
+segmentfault <https://segmentfault.com/a/1190000004286562#articleHeader4>  
+推酷 <http://www.tuicool.com/articles/rii6raN>

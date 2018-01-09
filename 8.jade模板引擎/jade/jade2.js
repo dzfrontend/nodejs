@@ -13,16 +13,3 @@ var html = jade.renderFile('./view/jade2.jade',{pretty:true});
 console.log(html);
 
 //运行该js文件，控制台会解析jade.jade里面的模板到控制台
-/*
-结果为：
-<doctyle>
-  <html>
-    <head>
-      <title>jade-demo</title>
-    </head>
-    <body>
-      <p>hello world</p>
-    </body>
-  </html>
-</doctyle>
-*/

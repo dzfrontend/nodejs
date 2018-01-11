@@ -41,3 +41,26 @@ npm install multer --save
 consolidate https://www.npmjs.com/package/consolidate 模板引擎整合库  
 
 看上面网址的文档结合server_consolidate.js就可以看懂consoledate模板引擎整合
+
+## Router路由介绍
+
+```js
+
+	const express = require('express')
+	
+	var server = express()
+	server.listen(8088);
+	console.log('Server running at http://127.0.0.1:8088/');
+	
+	// 路由：
+	// 例：访问目录/user里面的资源，浏览器访问http://127.0.0.1:8088/user/1.html，浏览器显示user1
+	
+	// 1.创建路由Router
+	var routeUser = express.Router()
+	// 2.将Router添加到server
+	server.use('/user',routeUser)
+	// 3.对应请求的页面
+	routeUser.get('/1.html', (req,res) => {
+	  res.send('user1')
+	})
+```

@@ -6,6 +6,7 @@ const bodyParser=require('body-parser');
 const multer=require('multer');
 const consolidate=require('consolidate');
 const mysql=require('mysql');
+const commonLibs = require('./libs/common')
 
 // 连接数据库
 const db = mysql.createPool({host: 'localhost', user: 'root', password: 'mysql', database: 'blog'})
@@ -61,11 +62,33 @@ server.get('/', (req, res, next)=>{
     next();
   });
 });
-server.get('/', (req,res) => {
-	console.log(res.articles);
+server.get('/', (req,res) => { 
 	res.render('index.ejs', {banners: res.banners, articles: res.articles})
 })
 
+server.get('/article', (req,res) => {
+	console.log(req.query.id);
+	if(req.query.id){
+		db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err,data) =>{
+			if(err){
+				res.status(500).send('数据有问题').end()
+			}else{
+				if(data.length === 0){
+					res.status(404).send('文章内容为空').end()
+				}else{
+					var articleData = data[0]
+					articleData.date = commonLibs.time2date(articleData.post_time) //获取转化后的时间
+					articleData.content = articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>'); //行首行尾加上p标签
+					res.render('conText.ejs',{
+						article_data: articleData
+					})
+				}
+			}
+		})
+	}else{
+	    res.status(404).send('您请求的文章找不到').end();
+	}
+})
 
 //5.请求静态资源目录
 server.use(static('./www'));

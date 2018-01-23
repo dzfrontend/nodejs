@@ -67,27 +67,57 @@ server.get('/', (req,res) => {
 })
 
 server.get('/article', (req,res) => {
-	console.log(req.query.id);
+	// console.log(req.query.id);
+	
 	if(req.query.id){
-		db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err,data) =>{
-			if(err){
-				res.status(500).send('数据有问题').end()
-			}else{
-				if(data.length === 0){
-					res.status(404).send('文章内容为空').end()
+		// 点赞更新数据库操作
+		if(req.query.act === 'like'){
+			db.query(`UPDATE article_table SET n_like=n_like+1 WHERE ID=${req.query.id}`,(err,data) =>{
+				if(err){
+					res.status(500).send('数据库出错').end()
 				}else{
-					var articleData = data[0]
-					articleData.date = commonLibs.time2date(articleData.post_time) //获取转化后的时间
-					articleData.content = articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>'); //行首行尾加上p标签
-					res.render('conText.ejs',{
-						article_data: articleData
-					})
+					// 显示文章
+					db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err,data) =>{
+						if(err){
+							res.status(500).send('数据有问题').end()
+						}else{
+							if(data.length === 0){
+								res.status(404).send('文章内容为空').end()
+							}else{
+								var articleData = data[0]
+								articleData.date = commonLibs.time2date(articleData.post_time) //获取转化后的时间
+								articleData.content = articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>'); //行首行尾加上p标签
+								res.render('conText.ejs',{
+									article_data: articleData
+								})
+							}
+						}
+					})	
 				}
-			}
-		})
+			})
+		}else{
+			// 显示文章
+			db.query(`SELECT * FROM article_table WHERE ID=${req.query.id}`, (err,data) =>{
+				if(err){
+					res.status(500).send('数据有问题').end()
+				}else{
+					if(data.length === 0){
+						res.status(404).send('文章内容为空').end()
+					}else{
+						var articleData = data[0]
+						articleData.date = commonLibs.time2date(articleData.post_time) //获取转化后的时间
+						articleData.content = articleData.content.replace(/^/gm, '<p>').replace(/$/gm, '</p>'); //行首行尾加上p标签
+						res.render('conText.ejs',{
+							article_data: articleData
+						})
+					}
+				}
+			})
+		}
 	}else{
 	    res.status(404).send('您请求的文章找不到').end();
 	}
+
 })
 
 //5.请求静态资源目录

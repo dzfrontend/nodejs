@@ -37,9 +37,12 @@ server.set('views', 'template');
 server.set('view engine', 'html');
 
 //4.route封装
-server.use('/', require('./route/web.js')());
+// 前台api接口路由，require里面为子路由入口文件，子路由入口文件写成module.exports导出的一个函数
+server.use('/', require('./route/web/index.js')());
+// 后台管理系统页面路由
 server.use('/admin/', require('./route/admin/index.js')());
 
 
+// 前台页面在static/路径里，前台数据渲染用的是angular,请求的是前台api接口
 //5.default：static
 server.use(static('./static/'));

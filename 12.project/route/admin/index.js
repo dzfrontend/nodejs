@@ -23,6 +23,8 @@ module.exports = function(){
     // admin/login
     router.use('/login',require('./login')())
     // admin/banners
-    router.use('/banners',require('./banners')())
+	router.use('/banners',require('./banners')())
+	// admin/custom
+	router.use('/custom', require('./custom')())
 	return router
 } 

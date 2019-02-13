@@ -20,4 +20,5 @@
 * 9: [《ejs模板引擎》](https://github.com/dzfrontend/nodejs/tree/master/9.ejs%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E)
 * 10: [《Mysql基础知识》](./10.mysql/README.md)
 * 11: [《Koa2》](./11.koa2)
+* 11: [《Sequelize》](./12.sequelize)
 
